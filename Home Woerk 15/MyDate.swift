@@ -74,5 +74,16 @@ class MyDate {
         print("dd:mm:yyyy \((String(format:  "%02d:%02d:%02d", day , month , year))), hh:mm:ss \((String(format:  "%02d:%02d:%02d",newDateTime.hour , newDateTime.minute , newDateTime.second)))")
         
     }
+    
+    func addSecond(_ second: Int) {
+        
+        if second == 60 {
+            newDateTime.second = 0
+            newDateTime.minute += 1
+        }
+        
+        
+    }
 
 }
+
