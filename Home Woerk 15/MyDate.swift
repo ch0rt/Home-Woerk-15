@@ -6,6 +6,8 @@
 //
 
 import Foundation
+
+
 //14.2. Ստեղծել class որը MyDate անունով որը պետք է ունենա ամսաթիվը  և ժամանակը բնութագրող property-եր (օր, ամիս, տարի, MyTime տիպի property-ի որը ստեղծվել էր առաջին խնդրում)։
 //Այս կլասի էկզեմպլայրը պետք է ունոնոա հետևյալ մեթոդները՝։
 //- փոխել օրվա սկզբնական արժեքը
@@ -26,10 +28,21 @@ class MyDate {
     var year = 2021
     var newDateTime = MyTime()
 
+    
     func changeHour(_ newHour: Int) {
         newDateTime.setHour(newHour)
-       
+
     }
+    
+//    func addHour(_ myhour: Int) {
+//
+//        if newDateTime.hour == 0 {
+//            newDateTime.hour = 0
+//        day += 1
+//
+//    }
+//}
+    
     
     func changeMinut(_ newMinute: Int) {
         newDateTime.setMinute(newMinute)
@@ -48,6 +61,8 @@ class MyDate {
                 day = 0
             }
         }
+    
+    
     
         func setMonth(_ m: Int) {
             if m >= 1 && m <= 12 {
@@ -75,15 +90,35 @@ class MyDate {
         
     }
     
+    
     func addSecond(_ second: Int) {
         
         if second == 60 {
             newDateTime.second = 0
             newDateTime.minute += 1
+            
         }
         
+        if newDateTime.minute == 60 {
+            newDateTime.minute = 0
+            newDateTime.hour += 1
+        }
         
+        if newDateTime.hour > 23 {
+                    day = day + newDateTime.hour / 24
+            newDateTime.hour %= 24
+                }
+        
+        if day > 31 {
+            month = month + day / 31
+            day %= 31
+        }
+        if month > 12 {
+            year = year + month / 12
+            month %= 12
+        }
+      
+        
+   
     }
-
 }
-

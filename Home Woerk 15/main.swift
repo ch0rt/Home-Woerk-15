@@ -14,15 +14,28 @@ newValueTime.setSecond(60)
 newValueTime.myPrintTime()
 
 
-
 let all = MyDate()
-all.setDay(24)
-all.setMonth(12)
+
+all.setDay(1)
+all.setMonth(1)
 all.setYear(2022)
-all.changeHour(23)
-all.changeMinut(59)
-all.changeSecond(60)
+all.changeHour(1)
+all.changeMinut(10)
+//all.changeSecond(60)
+all.addSecond(10)
 all.printMyDate()
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

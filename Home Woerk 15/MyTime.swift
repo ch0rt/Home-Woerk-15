@@ -69,15 +69,15 @@ class MyTime {
         
         if hour == 24 {
                 hour = 0
-        
+          
       }
-
 }
 
 
     func myReturnTime() -> String {
         return (String(format: "%02d:%02d:%02d", hour, minute, second))
     }
+    
     func myPrintTime() {
         print("hh:mm:ss",String(format: "%02d:%02d:%02d", hour, minute, second))
 
