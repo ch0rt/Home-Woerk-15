@@ -8,21 +8,24 @@
 import Foundation
 
 let newValueTime = MyTime()
-newValueTime.setHour(23)
-newValueTime.setMinute(59)
-newValueTime.setSecond(60)
-newValueTime.myPrintTime()
+//newValueTime.setHour(23)
+//newValueTime.setMinute(59)
+//newValueTime.setSecond(60)
+//newValueTime.myPrintTime()
+
+
 
 
 let all = MyDate()
 
-all.setDay(1)
+all.setDay(33)
 all.setMonth(1)
 all.setYear(2022)
+
 all.changeHour(1)
-all.changeMinut(10)
+all.changeMinut(1)
 //all.changeSecond(60)
-all.addSecond(10)
+all.addSecond(2)
 all.printMyDate()
 
 

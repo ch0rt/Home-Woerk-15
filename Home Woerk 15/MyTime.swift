@@ -30,6 +30,7 @@ class MyTime {
             
         } else if h == 24 {
              hour = 0
+
             
         } else {
             hour = 0
@@ -60,6 +61,9 @@ class MyTime {
             second = 0
             minute += 1
             
+        } else if second > 60{
+            minute = minute + second / 60
+            second %= 60
         }
         
         if minute == 60 {

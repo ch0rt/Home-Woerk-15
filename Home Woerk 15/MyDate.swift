@@ -34,16 +34,6 @@ class MyDate {
 
     }
     
-//    func addHour(_ myhour: Int) {
-//
-//        if newDateTime.hour == 0 {
-//            newDateTime.hour = 0
-//        day += 1
-//
-//    }
-//}
-    
-    
     func changeMinut(_ newMinute: Int) {
         newDateTime.setMinute(newMinute)
     }
@@ -57,8 +47,12 @@ class MyDate {
     func setDay(_ d: Int) {
             if d >= 1 && d <= 31 {
                 day = d
-            } else {
+                
+            } else if d > 31 {
+                
                 day = 0
+                day = day + d % 31
+                month = month + d / 31
             }
         }
     
@@ -67,8 +61,9 @@ class MyDate {
         func setMonth(_ m: Int) {
             if m >= 1 && m <= 12 {
                 month = m
-            } else {
-                month = 0
+            } else if m > 12 {
+                month = month + m % 12
+                year = year + m / 12
             }
         }
     
@@ -93,26 +88,52 @@ class MyDate {
     
     func addSecond(_ second: Int) {
         
-        if second == 60 {
-            newDateTime.second = 0
-            newDateTime.minute += 1
+        if second >= 0 && second < 60 {
+            newDateTime.second = second
+            
+        } else if second > 59 {
+            
+            newDateTime.second = newDateTime.second + second % 60
+            newDateTime.minute = newDateTime.minute + second / 60
             
         }
         
-        if newDateTime.minute == 60 {
+        
+        
+        if newDateTime.minute >= 0 && newDateTime.minute < 60 {
+            newDateTime.minute = newDateTime.minute
+            
+        } else if newDateTime.minute == 60{
             newDateTime.minute = 0
             newDateTime.hour += 1
+            
+        } else if newDateTime.minute > 59 {
+            newDateTime.minute += newDateTime.minute % 60
+            newDateTime.hour = newDateTime.hour + newDateTime.minute / 60
         }
         
-        if newDateTime.hour > 23 {
-                    day = day + newDateTime.hour / 24
+        if newDateTime.hour >= 1 && newDateTime.hour < 24 {
+            newDateTime.hour = newDateTime.hour
+            
+        } else if newDateTime.hour > 23 {
+            
+            day = day + newDateTime.hour / 24
             newDateTime.hour %= 24
-                }
-        
-        if day > 31 {
-            month = month + day / 31
-            day %= 31
+            
+        } else if newDateTime.hour == 24 {
+            newDateTime.hour = 0
+            day += 1
         }
+        
+        if day >= 1 && day < 31 {
+            day = all.day
+            
+        } else if day > 31 {
+            month = month + day / 31
+            day = day + day % 31
+        }
+        
+    
         if month > 12 {
             year = year + month / 12
             month %= 12
